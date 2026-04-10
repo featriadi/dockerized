@@ -11,6 +11,7 @@ A collection of Docker Compose configurations for running common development ser
 
 - **PostgreSQL** - Relational database
 - **MySQL** - Relational database
+- **phpMyAdmin** - Web-based MySQL administration tool
 - **RabbitMQ** - Message broker
 
 ## Example: Running PostgreSQL
