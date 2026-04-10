@@ -9,6 +9,7 @@ A collection of Docker Compose configurations for running common development ser
 
 ## Available Services
 
+- **Portainer** - Docker container management platform
 - **PostgreSQL** - Relational database
 - **MySQL** - Relational database
 - **phpMyAdmin** - Web-based MySQL administration tool

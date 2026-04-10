@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  portainer:
+    image: portainer/portainer-ce:${PORTAINER_VERSION}
+    container_name: portainer
+    restart: unless-stopped
+
+    command: -H unix:///var/run/docker.sock
+
+    ports:
+      - "${PORTAINER_PORT}:9000"
+      - "${PORTAINER_HTTPS_PORT}:9443"
+
+    volumes:
+      - data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  data:
