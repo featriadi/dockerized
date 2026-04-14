@@ -18,6 +18,7 @@ A collection of Docker Compose configurations for running common development ser
 - **Elasticsearch** - Distributed search and analytics engine
 - **Logstash** - Data processing pipeline for ingesting and transforming logs
 - **Kibana** - Visualization and management UI for Elasticsearch
+- **Prometheus** - Metrics collection and monitoring system
 
 ## Example: Running PostgreSQL
 
