@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  elasticsearch:
+    image: elasticsearch:${ELASTICSEARCH_VERSION}
+    container_name: elasticsearch
+    restart: unless-stopped
+
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: ${ES_JAVA_OPTS}
+      ELASTIC_PASSWORD: ${ELASTICSEARCH_PASSWORD}
+      xpack.security.enabled: "true"
+
+    ports:
+      - "${ELASTICSEARCH_PORT}:9200"
+
+    volumes:
+      - data:/usr/share/elasticsearch/data
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s -u elastic:$$ELASTIC_PASSWORD http://localhost:9200/_cluster/health | grep -q '\"status\":\"green\"\\|\"status\":\"yellow\"' || exit 1"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  data:

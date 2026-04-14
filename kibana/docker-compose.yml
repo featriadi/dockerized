@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  kibana:
+    image: kibana:${KIBANA_VERSION}
+    container_name: kibana
+    restart: unless-stopped
+
+    environment:
+      ELASTICSEARCH_HOSTS: ${ELASTICSEARCH_HOSTS}
+      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME}
+      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD}
+
+    ports:
+      - "${KIBANA_PORT}:5601"
+
+    volumes:
+      - data:/usr/share/kibana/data
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s http://localhost:5601/api/status | grep -q '\"level\":\"available\"' || exit 1"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  data:

@@ -15,6 +15,9 @@ A collection of Docker Compose configurations for running common development ser
 - **phpMyAdmin** - Web-based MySQL administration tool
 - **RabbitMQ** - Message broker
 - **Redis** - In-memory data store and cache
+- **Elasticsearch** - Distributed search and analytics engine
+- **Logstash** - Data processing pipeline for ingesting and transforming logs
+- **Kibana** - Visualization and management UI for Elasticsearch
 
 ## Example: Running PostgreSQL
 

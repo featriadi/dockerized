@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  logstash:
+    image: logstash:${LOGSTASH_VERSION}
+    container_name: logstash
+    restart: unless-stopped
+
+    environment:
+      LS_JAVA_OPTS: ${LS_JAVA_OPTS}
+
+    ports:
+      - "${LOGSTASH_BEATS_PORT}:5044"
+      - "${LOGSTASH_HTTP_PORT}:9600"
+
+    volumes:
+      - ./pipeline:/usr/share/logstash/pipeline
+      - data:/usr/share/logstash/data
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s http://localhost:9600/_node/stats | grep -q '\"status\":\"green\"' || exit 1"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  data:
