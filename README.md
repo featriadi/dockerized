@@ -19,6 +19,7 @@ A collection of Docker Compose configurations for running common development ser
 - **Logstash** - Data processing pipeline for ingesting and transforming logs
 - **Kibana** - Visualization and management UI for Elasticsearch
 - **Prometheus** - Metrics collection and monitoring system
+- **Grafana** - Metrics visualization and observability dashboard
 
 ## Example: Running PostgreSQL
 
