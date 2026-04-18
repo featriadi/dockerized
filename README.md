@@ -20,6 +20,7 @@ A collection of Docker Compose configurations for running common development ser
 - **Kibana** - Visualization and management UI for Elasticsearch
 - **Prometheus** - Metrics collection and monitoring system
 - **Grafana** - Metrics visualization and observability dashboard
+- **Nginx** - High-performance web server and reverse proxy
 
 ## Example: Running PostgreSQL
 
