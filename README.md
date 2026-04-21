@@ -21,6 +21,7 @@ A collection of Docker Compose configurations for running common development ser
 - **Prometheus** - Metrics collection and monitoring system
 - **Grafana** - Metrics visualization and observability dashboard
 - **Nginx** - High-performance web server and reverse proxy
+- **MailHog** - Email testing tool with SMTP server and web UI
 
 ## Example: Running PostgreSQL
 
