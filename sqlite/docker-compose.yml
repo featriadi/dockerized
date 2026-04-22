@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  sqlite-web:
+    image: coleifer/sqlite-web:${SQLITE_WEB_VERSION}
+    container_name: sqlite-web
+    restart: unless-stopped
+
+    environment:
+      SQLITE_WEB_PASSWORD: ${SQLITE_WEB_PASSWORD}
+
+    command: sqlite_web --host 0.0.0.0 --port 8080 ${SQLITE_WEB_PASSWORD:+-P} /data/${SQLITE_WEB_DB}
+
+    ports:
+      - "${SQLITE_WEB_PORT}:8080"
+
+    volumes:
+      - data:/data
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -qO- http://localhost:8080 || exit 1"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  data:

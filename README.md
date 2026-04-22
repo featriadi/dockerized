@@ -22,6 +22,7 @@ A collection of Docker Compose configurations for running common development ser
 - **Grafana** - Metrics visualization and observability dashboard
 - **Nginx** - High-performance web server and reverse proxy
 - **MailHog** - Email testing tool with SMTP server and web UI
+- **SQLite** - Browser-based SQLite database viewer and editor (sqlite-web)
 
 ## Example: Running PostgreSQL
 
